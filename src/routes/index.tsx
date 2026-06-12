@@ -326,6 +326,32 @@ function Portfolio() {
         </div>
       </header>
 
+      {/* GLOBAL RATING BAR */}
+      <section aria-label="Client ratings" className="border-b border-border bg-card/40">
+        <div className="mx-auto max-w-7xl px-6 py-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm">
+          <div className="flex items-center gap-3">
+            <Stars rating={4.9} className="text-primary" />
+            <span className="font-display font-extrabold text-foreground">4.9/5</span>
+            <span className="text-muted-foreground">Global Client Rating</span>
+          </div>
+          <div className="hidden sm:block h-5 w-px bg-border" />
+          <div className="flex items-center gap-2">
+            <span className="font-display font-extrabold text-primary">50+</span>
+            <span className="text-muted-foreground">Verified Reviews</span>
+          </div>
+          <div className="hidden sm:block h-5 w-px bg-border" />
+          <div className="flex items-center gap-2">
+            <span className="font-display font-extrabold text-primary">98%</span>
+            <span className="text-muted-foreground">Repeat & Referral Clients</span>
+          </div>
+          <div className="hidden sm:block h-5 w-px bg-border" />
+          <div className="flex items-center gap-2">
+            <span className="font-display font-extrabold text-primary">12</span>
+            <span className="text-muted-foreground">Countries Served</span>
+          </div>
+        </div>
+      </section>
+
       {/* HERO */}
       <section id="top" className="relative hero-bg">
         <div className="mx-auto max-w-7xl px-6 pt-20 pb-32 grid lg:grid-cols-2 gap-12 items-center">
