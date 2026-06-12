@@ -12,4 +12,17 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      proxy: {
+        // Proxy Lovable CDN assets (logo, team photos, watermark) to the hosted CDN
+        // so they resolve when running `bun dev` locally.
+        "/__l5e": {
+          target: "https://stylish-render-lab.lovable.app",
+          changeOrigin: true,
+          secure: true,
+        },
+      },
+    },
+  },
 });
