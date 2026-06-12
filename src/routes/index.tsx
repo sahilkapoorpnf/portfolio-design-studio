@@ -629,6 +629,28 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
               ))}
             </ul>
           </div>
+
+          {project.review && (
+            <figure className="mt-8 rounded-2xl border border-border bg-background/60 p-5">
+              <div className="flex items-center justify-between">
+                <Stars rating={project.review.rating} className="text-primary" />
+                <span className="text-xs font-mono text-muted-foreground">{project.review.rating.toFixed(1)} / 5</span>
+              </div>
+              <blockquote className="mt-3 text-sm text-foreground/90 leading-relaxed italic">
+                "{project.review.quote}"
+              </blockquote>
+              <figcaption className="mt-3 flex items-center gap-3">
+                <div className="size-9 rounded-full bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-[11px] font-display font-black text-primary-foreground">
+                  {initials(project.review.author)}
+                </div>
+                <div>
+                  <div className="text-sm font-display font-bold">{project.review.author}</div>
+                  <div className="text-xs text-muted-foreground">{project.review.designation}</div>
+                </div>
+              </figcaption>
+            </figure>
+          )}
+        </div>
         </div>
 
         {/* VISUAL SIDE */}
