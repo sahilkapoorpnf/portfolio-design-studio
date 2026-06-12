@@ -76,7 +76,7 @@ type Project = {
   review?: Review;
 };
 
-const team: { name: string; role: string; bio: string; photo?: string }[] = [
+const team: { name: string; role: string; bio: string; photo?: string; photoScale?: number }[] = [
   {
     name: "Sahil Kapoor",
     role: "Founder & CEO",
@@ -88,6 +88,7 @@ const team: { name: string; role: string; bio: string; photo?: string }[] = [
     role: "Co-Founder & Director IT",
     bio: "Drives engineering excellence and delivery across enterprise platforms, fintech rails and government-grade systems.",
     photo: photoShaiyad.url,
+    photoScale: 1.35,
   },
   {
     name: "Ritesh Khullar",
@@ -510,7 +511,12 @@ function Portfolio() {
               <div className="relative">
                 <div className="size-28 rounded-full overflow-hidden bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-2xl font-display font-black text-primary-foreground shadow-xl ring-2 ring-primary/30">
                   {m.photo ? (
-                    <img src={m.photo} alt={m.name} className="size-full object-cover" />
+                    <img
+                      src={m.photo}
+                      alt={m.name}
+                      className="size-full object-cover"
+                      style={m.photoScale ? { transform: `scale(${m.photoScale})` } : undefined}
+                    />
                   ) : (
                     initials(m.name)
                   )}
