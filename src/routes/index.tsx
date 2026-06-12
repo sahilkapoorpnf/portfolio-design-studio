@@ -440,6 +440,7 @@ function Portfolio() {
           <div>© {new Date().getFullYear()} BitDecentro FZ-LLC. All rights reserved.</div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
