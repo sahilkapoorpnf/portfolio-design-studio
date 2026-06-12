@@ -279,6 +279,19 @@ function accentClass(a: Project["accent"]) {
   }
 }
 
+const projectReviews: Record<string, Review> = {
+  "01": { rating: 5, quote: "BitDecentro modernised our citizen-facing platform without losing the trust and credibility a government portal demands.", author: "Project Director", designation: "HIMUDA, Govt. of Himachal Pradesh" },
+  "02": { rating: 5, quote: "Our booking and driver operations have never felt this smooth. A true delivery-grade product partner.", author: "Nimish Trivedi", designation: "CEO, Evera Cabs" },
+  "03": { rating: 5, quote: "The team captured the warmth of our clinic in a platform that patients genuinely enjoy using.", author: "Dr. Hadi", designation: "Founder, Hadi Clinic" },
+  "04": { rating: 4.5, quote: "Parents finally have peace of mind. Reliable tracking, verified drivers — exactly what we envisioned.", author: "Operations Head", designation: "Sagor Mobility" },
+  "05": { rating: 5, quote: "An authoritative digital experience worthy of a central bank — engineered with precision and care.", author: "Digital Transformation Lead", designation: "Central Bank of Kuwait" },
+  "06": { rating: 5, quote: "Clean, accessible and built around our researchers. The dashboard simplified everything.", author: "Program Lead", designation: "Trialect — SeizFire" },
+  "07": { rating: 5, quote: "AI matching that actually works. Our placements grew, and the platform feels effortless.", author: "Founder", designation: "Tallento.ai" },
+  "08": { rating: 5, quote: "My brand finally feels like me. Warm, motivating, and built to grow with my community.", author: "Swati", designation: "Founder, Fit & Fab" },
+  "09": { rating: 4.5, quote: "Editorial storytelling done right — honest, beautiful and true to our ethics.", author: "Brand Manager", designation: "LUSH" },
+  "10": { rating: 5, quote: "Real-time visibility across godowns transformed how we operate. Audit-ready from day one.", author: "Managing Director", designation: "HIMFED" },
+};
+
 function Portfolio() {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
