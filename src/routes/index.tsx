@@ -76,7 +76,7 @@ type Project = {
   review?: Review;
 };
 
-const team: { name: string; role: string; bio: string; photo?: string }[] = [
+const team: { name: string; role: string; bio: string; photo?: string; photoScale?: number }[] = [
   {
     name: "Sahil Kapoor",
     role: "Founder & CEO",
@@ -88,6 +88,7 @@ const team: { name: string; role: string; bio: string; photo?: string }[] = [
     role: "Co-Founder & Director IT",
     bio: "Drives engineering excellence and delivery across enterprise platforms, fintech rails and government-grade systems.",
     photo: photoShaiyad.url,
+    photoScale: 1.35,
   },
   {
     name: "Ritesh Khullar",
