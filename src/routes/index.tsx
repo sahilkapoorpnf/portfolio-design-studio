@@ -652,7 +652,7 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
             </figure>
           )}
         </div>
-        </div>
+
 
         {/* VISUAL SIDE */}
         <div className={`relative min-h-[480px] ${reverse ? "lg:order-1" : ""}`}>
