@@ -10,6 +10,7 @@ import shotFitFab from "@/assets/projects/fitandfab.png";
 import shotLush from "@/assets/projects/lush.png";
 import shotHimfed from "@/assets/projects/himfed.png";
 import bitdecentroLogo from "@/assets/bitdecentro-logo.png.asset.json";
+import bitdecentroMark from "@/assets/bitdecentro-mark.png.asset.json";
 
 
 
@@ -233,7 +234,19 @@ function accentClass(a: Project["accent"]) {
 
 function Portfolio() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* WATERMARK PATTERN (zig-zag) */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `url(${bitdecentroMark.url}), url(${bitdecentroMark.url})`,
+          backgroundSize: "140px auto, 140px auto",
+          backgroundPosition: "0 0, 140px 140px",
+          backgroundRepeat: "repeat, repeat",
+        }}
+      />
+      <div className="relative z-10">
       {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
