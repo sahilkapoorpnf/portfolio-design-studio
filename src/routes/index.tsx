@@ -449,9 +449,9 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
   const grad = accentClass(project.accent);
   return (
     <article className="relative rounded-3xl bg-card border border-border overflow-hidden card-shadow">
-      <div className={`grid lg:grid-cols-12 gap-0`}>
+      <div className={`grid lg:grid-cols-2 gap-0`}>
         {/* TEXT SIDE */}
-        <div className={`lg:col-span-7 p-8 md:p-12 ${reverse ? "lg:order-2" : ""}`}>
+        <div className={`p-8 md:p-12 ${reverse ? "lg:order-2" : ""}`}>
           <div className="flex items-center justify-between">
             <div className="font-script text-5xl text-primary leading-none">{project.num}</div>
             {project.url && (
@@ -500,7 +500,7 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
         </div>
 
         {/* VISUAL SIDE */}
-        <div className={`lg:col-span-5 relative min-h-[320px] ${reverse ? "lg:order-1" : ""}`}>
+        <div className={`relative min-h-[480px] ${reverse ? "lg:order-1" : ""}`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${grad} opacity-90`} />
           <div className="absolute inset-0 dot-pattern opacity-30 mix-blend-overlay" />
           {/* Mock browser */}
