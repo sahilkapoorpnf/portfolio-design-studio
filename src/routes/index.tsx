@@ -1,4 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import shotHimuda from "@/assets/projects/himuda.png";
+import shotEvera from "@/assets/projects/evera.png";
+import shotHadi from "@/assets/projects/hadi.jpg";
+import shotSagor from "@/assets/projects/sagor.png";
+import shotCbk from "@/assets/projects/cbk.png";
+import shotTrialect from "@/assets/projects/trialect.png";
+import shotTallento from "@/assets/projects/tallento.png";
+import shotFitFab from "@/assets/projects/fitandfab.png";
+import shotLush from "@/assets/projects/lush.png";
+import shotHimfed from "@/assets/projects/himfed.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,6 +58,7 @@ type Project = {
   highlights?: { title: string; body: string }[];
   stack: string[];
   accent: "cyan" | "violet" | "emerald" | "amber" | "rose";
+  screenshot: string;
 };
 
 const projects: Project[] = [
