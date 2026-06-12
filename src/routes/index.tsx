@@ -9,6 +9,8 @@ import shotTallento from "@/assets/projects/tallento.png";
 import shotFitFab from "@/assets/projects/fitandfab.png";
 import shotLush from "@/assets/projects/lush.png";
 import shotHimfed from "@/assets/projects/himfed.png";
+import bitdecentroLogo from "@/assets/bitdecentro-logo.png.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
@@ -236,8 +238,7 @@ function Portfolio() {
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2">
-            <div className="size-9 rounded-full border-2 border-primary grid place-items-center font-display font-black text-primary">B</div>
-            <span className="font-display font-extrabold tracking-tight text-lg">bitdecentro</span>
+            <img src={bitdecentroLogo.url} alt="Bitdecentro" className="h-8 w-auto" />
           </a>
           <nav className="hidden md:flex gap-8 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition">About</a>
@@ -421,8 +422,7 @@ function Portfolio() {
       <footer className="border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <div className="size-7 rounded-full border-2 border-primary grid place-items-center font-display font-black text-primary text-xs">B</div>
-            <span className="font-display font-extrabold tracking-tight text-foreground">bitdecentro</span>
+            <img src={bitdecentroLogo.url} alt="Bitdecentro" className="h-6 w-auto" />
           </div>
           <div>© {new Date().getFullYear()} BitDecentro FZ-LLC. All rights reserved.</div>
         </div>
