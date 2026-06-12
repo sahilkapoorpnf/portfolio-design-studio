@@ -52,6 +52,13 @@ const aiStack = [
   "Stable Diffusion", "Phi-2", "Gemini", "Mistral", "Vicuna", "BLOOM",
 ];
 
+type Review = {
+  rating: number;
+  quote: string;
+  author: string;
+  designation: string;
+};
+
 type Project = {
   num: string;
   title: string;
@@ -62,7 +69,47 @@ type Project = {
   stack: string[];
   accent: "cyan" | "violet" | "emerald" | "amber" | "rose";
   screenshot: string;
+  review?: Review;
 };
+
+const team = [
+  {
+    name: "Sahil Kapoor",
+    role: "Founder & CEO",
+    bio: "Visionary leader steering BitDecentro's global blockchain and AI strategy with a decade of product and venture-building experience.",
+  },
+  {
+    name: "MD Shaiyad",
+    role: "Co-Founder & Director IT",
+    bio: "Drives engineering excellence and delivery across enterprise platforms, fintech rails and government-grade systems.",
+  },
+  {
+    name: "Ritesh Khullar",
+    role: "Director & CFO",
+    bio: "Leads finance, governance and partnerships — keeping growth disciplined, transparent and built to scale internationally.",
+  },
+  {
+    name: "Hardil Singh",
+    role: "CTO",
+    bio: "Architect of our blockchain, AI and cloud stack — turning frontier research into production-ready, secure products.",
+  },
+];
+
+function initials(name: string) {
+  return name.split(/\s+/).map((n) => n[0]).slice(0, 2).join("").toUpperCase();
+}
+
+function Stars({ rating, className = "" }: { rating: number; className?: string }) {
+  return (
+    <div className={`inline-flex items-center gap-0.5 ${className}`} aria-label={`${rating} out of 5`}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} viewBox="0 0 24 24" className="size-4" fill={i < Math.round(rating) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2.5l2.95 6.16 6.8.83-5 4.7 1.32 6.76L12 17.77l-6.07 3.18L7.25 14.2l-5-4.7 6.8-.83L12 2.5z" strokeLinejoin="round" />
+        </svg>
+      ))}
+    </div>
+  );
+}
 
 const projects: Project[] = [
   {
@@ -232,6 +279,19 @@ function accentClass(a: Project["accent"]) {
   }
 }
 
+const projectReviews: Record<string, Review> = {
+  "01": { rating: 5, quote: "BitDecentro modernised our citizen-facing platform without losing the trust and credibility a government portal demands.", author: "Project Director", designation: "HIMUDA, Govt. of Himachal Pradesh" },
+  "02": { rating: 5, quote: "Our booking and driver operations have never felt this smooth. A true delivery-grade product partner.", author: "Nimish Trivedi", designation: "CEO, Evera Cabs" },
+  "03": { rating: 5, quote: "The team captured the warmth of our clinic in a platform that patients genuinely enjoy using.", author: "Dr. Hadi", designation: "Founder, Hadi Clinic" },
+  "04": { rating: 4.5, quote: "Parents finally have peace of mind. Reliable tracking, verified drivers — exactly what we envisioned.", author: "Operations Head", designation: "Sagor Mobility" },
+  "05": { rating: 5, quote: "An authoritative digital experience worthy of a central bank — engineered with precision and care.", author: "Digital Transformation Lead", designation: "Central Bank of Kuwait" },
+  "06": { rating: 5, quote: "Clean, accessible and built around our researchers. The dashboard simplified everything.", author: "Program Lead", designation: "Trialect — SeizFire" },
+  "07": { rating: 5, quote: "AI matching that actually works. Our placements grew, and the platform feels effortless.", author: "Founder", designation: "Tallento.ai" },
+  "08": { rating: 5, quote: "My brand finally feels like me. Warm, motivating, and built to grow with my community.", author: "Swati", designation: "Founder, Fit & Fab" },
+  "09": { rating: 4.5, quote: "Editorial storytelling done right — honest, beautiful and true to our ethics.", author: "Brand Manager", designation: "LUSH" },
+  "10": { rating: 5, quote: "Real-time visibility across godowns transformed how we operate. Audit-ready from day one.", author: "Managing Director", designation: "HIMFED" },
+};
+
 function Portfolio() {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -265,6 +325,32 @@ function Portfolio() {
           </a>
         </div>
       </header>
+
+      {/* GLOBAL RATING BAR */}
+      <section aria-label="Client ratings" className="border-b border-border bg-card/40">
+        <div className="mx-auto max-w-7xl px-6 py-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm">
+          <div className="flex items-center gap-3">
+            <Stars rating={4.9} className="text-primary" />
+            <span className="font-display font-extrabold text-foreground">4.9/5</span>
+            <span className="text-muted-foreground">Global Client Rating</span>
+          </div>
+          <div className="hidden sm:block h-5 w-px bg-border" />
+          <div className="flex items-center gap-2">
+            <span className="font-display font-extrabold text-primary">50+</span>
+            <span className="text-muted-foreground">Verified Reviews</span>
+          </div>
+          <div className="hidden sm:block h-5 w-px bg-border" />
+          <div className="flex items-center gap-2">
+            <span className="font-display font-extrabold text-primary">98%</span>
+            <span className="text-muted-foreground">Repeat & Referral Clients</span>
+          </div>
+          <div className="hidden sm:block h-5 w-px bg-border" />
+          <div className="flex items-center gap-2">
+            <span className="font-display font-extrabold text-primary">12</span>
+            <span className="text-muted-foreground">Countries Served</span>
+          </div>
+        </div>
+      </section>
 
       {/* HERO */}
       <section id="top" className="relative hero-bg">
@@ -398,6 +484,36 @@ function Portfolio() {
         ))}
       </div>
 
+      {/* CORE TEAM */}
+      <section id="team" className="mx-auto max-w-7xl px-6 py-24">
+        <div className="text-center">
+          <span className="pill-tag">Core Team</span>
+          <h2 className="mt-8 font-display font-extrabold text-4xl md:text-5xl">
+            The people behind <span className="font-script text-primary text-5xl md:text-6xl">bitdecentro</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+            A close-knit leadership team blending product vision, engineering depth and operational rigour.
+          </p>
+        </div>
+
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {team.map((m) => (
+            <article key={m.name} className="rounded-3xl bg-card border border-border p-6 hover:border-primary/60 transition card-shadow flex flex-col items-center text-center">
+              <div className="relative">
+                <div className="size-28 rounded-full bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-2xl font-display font-black text-primary-foreground shadow-xl">
+                  {initials(m.name)}
+                </div>
+                <span className="absolute -bottom-1 -right-1 text-primary text-xl">✦</span>
+              </div>
+              <h3 className="mt-5 font-display font-extrabold text-xl">{m.name}</h3>
+              <div className="mt-1 text-xs uppercase tracking-wider text-primary font-semibold">{m.role}</div>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{m.bio}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+
       {/* CONTACT */}
       <section id="contact" className="relative hero-bg border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-12">
@@ -513,7 +629,30 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
               ))}
             </ul>
           </div>
+
+
+          {project.review && (
+            <figure className="mt-8 rounded-2xl border border-border bg-background/60 p-5">
+              <div className="flex items-center justify-between">
+                <Stars rating={project.review.rating} className="text-primary" />
+                <span className="text-xs font-mono text-muted-foreground">{project.review.rating.toFixed(1)} / 5</span>
+              </div>
+              <blockquote className="mt-3 text-sm text-foreground/90 leading-relaxed italic">
+                "{project.review.quote}"
+              </blockquote>
+              <figcaption className="mt-3 flex items-center gap-3">
+                <div className="size-9 rounded-full bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-[11px] font-display font-black text-primary-foreground">
+                  {initials(project.review.author)}
+                </div>
+                <div>
+                  <div className="text-sm font-display font-bold">{project.review.author}</div>
+                  <div className="text-xs text-muted-foreground">{project.review.designation}</div>
+                </div>
+              </figcaption>
+            </figure>
+          )}
         </div>
+
 
         {/* VISUAL SIDE */}
         <div className={`relative min-h-[480px] ${reverse ? "lg:order-1" : ""}`}>
