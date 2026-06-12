@@ -52,6 +52,13 @@ const aiStack = [
   "Stable Diffusion", "Phi-2", "Gemini", "Mistral", "Vicuna", "BLOOM",
 ];
 
+type Review = {
+  rating: number;
+  quote: string;
+  author: string;
+  designation: string;
+};
+
 type Project = {
   num: string;
   title: string;
@@ -62,7 +69,47 @@ type Project = {
   stack: string[];
   accent: "cyan" | "violet" | "emerald" | "amber" | "rose";
   screenshot: string;
+  review?: Review;
 };
+
+const team = [
+  {
+    name: "Sahil Kapoor",
+    role: "Founder & CEO",
+    bio: "Visionary leader steering BitDecentro's global blockchain and AI strategy with a decade of product and venture-building experience.",
+  },
+  {
+    name: "MD Shaiyad",
+    role: "Co-Founder & Director IT",
+    bio: "Drives engineering excellence and delivery across enterprise platforms, fintech rails and government-grade systems.",
+  },
+  {
+    name: "Ritesh Khullar",
+    role: "Director & CFO",
+    bio: "Leads finance, governance and partnerships — keeping growth disciplined, transparent and built to scale internationally.",
+  },
+  {
+    name: "Hardil Singh",
+    role: "CTO",
+    bio: "Architect of our blockchain, AI and cloud stack — turning frontier research into production-ready, secure products.",
+  },
+];
+
+function initials(name: string) {
+  return name.split(/\s+/).map((n) => n[0]).slice(0, 2).join("").toUpperCase();
+}
+
+function Stars({ rating, className = "" }: { rating: number; className?: string }) {
+  return (
+    <div className={`inline-flex items-center gap-0.5 ${className}`} aria-label={`${rating} out of 5`}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} viewBox="0 0 24 24" className="size-4" fill={i < Math.round(rating) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2.5l2.95 6.16 6.8.83-5 4.7 1.32 6.76L12 17.77l-6.07 3.18L7.25 14.2l-5-4.7 6.8-.83L12 2.5z" strokeLinejoin="round" />
+        </svg>
+      ))}
+    </div>
+  );
+}
 
 const projects: Project[] = [
   {
