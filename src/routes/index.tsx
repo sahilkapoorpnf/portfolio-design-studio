@@ -14,6 +14,7 @@ import bitdecentroMark from "@/assets/bitdecentro-mark.png.asset.json";
 import photoSahil from "@/assets/sahil-kapoor.png.asset.json";
 import photoRitesh from "@/assets/ritesh-khullar.png.asset.json";
 import photoHardil from "@/assets/hardil-singh.png.asset.json";
+import photoShaiyad from "@/assets/md-shaiyad.png.asset.json";
 
 
 
@@ -86,6 +87,7 @@ const team: { name: string; role: string; bio: string; photo?: string }[] = [
     name: "MD Shaiyad",
     role: "Co-Founder & Director IT",
     bio: "Drives engineering excellence and delivery across enterprise platforms, fintech rails and government-grade systems.",
+    photo: photoShaiyad.url,
   },
   {
     name: "Ritesh Khullar",
