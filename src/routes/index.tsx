@@ -514,7 +514,7 @@ function Portfolio() {
                     <img
                       src={m.photo}
                       alt={m.name}
-                      className={`size-full object-cover ${m.name === "MD Shaiyad" ? "scale-[1.35]" : ""}`}
+                      className={`size-full object-cover ${m.photoScale ? `scale-[${m.photoScale}]` : ""}`}
                     />
                   ) : (
                     initials(m.name)
