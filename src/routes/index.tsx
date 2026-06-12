@@ -513,12 +513,12 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
                 {project.url ?? `${project.title.toLowerCase().replace(/\s+/g, "")}.app`}
               </div>
             </div>
-            <div className="flex-1 relative bg-background">
+            <div className="flex-1 relative bg-white flex items-center justify-center p-2">
               <img
                 src={project.screenshot}
                 alt={`${project.title} website screenshot`}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover object-top"
+                className="max-w-full max-h-full w-auto h-auto object-contain"
               />
             </div>
           </div>
