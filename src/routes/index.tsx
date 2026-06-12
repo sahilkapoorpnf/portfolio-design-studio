@@ -235,17 +235,17 @@ function accentClass(a: Project["accent"]) {
 function Portfolio() {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* WATERMARK PATTERN (zig-zag) */}
+      {/* WATERMARK — single full-size instance */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `url(${bitdecentroMark.url}), url(${bitdecentroMark.url})`,
-          backgroundSize: "140px auto, 140px auto",
-          backgroundPosition: "0 0, 140px 140px",
-          backgroundRepeat: "repeat, repeat",
-        }}
-      />
+        className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center opacity-[0.06]"
+      >
+        <img
+          src={bitdecentroMark.url}
+          alt=""
+          className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain"
+        />
+      </div>
       <div className="relative z-10">
       {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
