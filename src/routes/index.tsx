@@ -85,7 +85,7 @@ const team: { name: string; role: string; bio: string; photo?: string; photoScal
   },
   {
     name: "MD Shaiyad",
-    role: "Co-Founder & Director IT",
+    role: "Co-Founder and Managing Director",
     bio: "Drives engineering excellence and delivery across enterprise platforms, fintech rails and government-grade systems.",
     photo: photoShaiyad.url,
     photoScale: 1.35,
