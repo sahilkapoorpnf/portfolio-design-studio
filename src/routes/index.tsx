@@ -296,7 +296,9 @@ function Portfolio() {
               <div className="size-[320px] rounded-full border-[14px] border-violet relative animate-spin [animation-duration:30s]"
                    style={{ borderImage: "conic-gradient(from 0deg, oklch(0.62 0.22 285), oklch(0.82 0.16 210), oklch(0.62 0.22 285)) 1" }} />
               <div className="absolute size-[260px] rounded-full bg-gradient-to-br from-violet to-[oklch(0.4_0.22_265)] glow" />
-              <div className="absolute size-[120px] rounded-full bg-background/80 backdrop-blur" />
+              <div className="absolute size-[140px] rounded-2xl bg-background/90 backdrop-blur grid place-items-center animate-spin [animation-duration:12s] shadow-xl">
+                <img src={bitdecentroLogo.url} alt="bitdecentro" className="size-20 object-contain" />
+              </div>
             </div>
             <div className="absolute top-6 right-10 size-20 dot-pattern opacity-60" />
           </div>
