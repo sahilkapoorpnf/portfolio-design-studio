@@ -510,7 +510,11 @@ function Portfolio() {
               <div className="relative">
                 <div className="size-28 rounded-full overflow-hidden bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-2xl font-display font-black text-primary-foreground shadow-xl ring-2 ring-primary/30">
                   {m.photo ? (
-                    <img src={m.photo} alt={m.name} className="size-full object-cover" />
+                    <img
+                      src={m.photo}
+                      alt={m.name}
+                      className={`size-full object-cover ${m.name === "MD Shaiyad" ? "scale-[1.35]" : ""}`}
+                    />
                   ) : (
                     initials(m.name)
                   )}
