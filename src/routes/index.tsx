@@ -630,6 +630,7 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
             </ul>
           </div>
 
+
           {project.review && (
             <figure className="mt-8 rounded-2xl border border-border bg-background/60 p-5">
               <div className="flex items-center justify-between">
