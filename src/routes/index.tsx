@@ -484,6 +484,36 @@ function Portfolio() {
         ))}
       </div>
 
+      {/* CORE TEAM */}
+      <section id="team" className="mx-auto max-w-7xl px-6 py-24">
+        <div className="text-center">
+          <span className="pill-tag">Core Team</span>
+          <h2 className="mt-8 font-display font-extrabold text-4xl md:text-5xl">
+            The people behind <span className="font-script text-primary text-5xl md:text-6xl">bitdecentro</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+            A close-knit leadership team blending product vision, engineering depth and operational rigour.
+          </p>
+        </div>
+
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {team.map((m) => (
+            <article key={m.name} className="rounded-3xl bg-card border border-border p-6 hover:border-primary/60 transition card-shadow flex flex-col items-center text-center">
+              <div className="relative">
+                <div className="size-28 rounded-full bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-2xl font-display font-black text-primary-foreground shadow-xl">
+                  {initials(m.name)}
+                </div>
+                <span className="absolute -bottom-1 -right-1 text-primary text-xl">✦</span>
+              </div>
+              <h3 className="mt-5 font-display font-extrabold text-xl">{m.name}</h3>
+              <div className="mt-1 text-xs uppercase tracking-wider text-primary font-semibold">{m.role}</div>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{m.bio}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+
       {/* CONTACT */}
       <section id="contact" className="relative hero-bg border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-12">
