@@ -11,6 +11,9 @@ import shotLush from "@/assets/projects/lush.png";
 import shotHimfed from "@/assets/projects/himfed.png";
 import bitdecentroLogo from "@/assets/bitdecentro-logo.png.asset.json";
 import bitdecentroMark from "@/assets/bitdecentro-mark.png.asset.json";
+import photoSahil from "@/assets/sahil-kapoor.png.asset.json";
+import photoRitesh from "@/assets/ritesh-khullar.png.asset.json";
+import photoHardil from "@/assets/hardil-singh.png.asset.json";
 
 
 
@@ -72,11 +75,12 @@ type Project = {
   review?: Review;
 };
 
-const team = [
+const team: { name: string; role: string; bio: string; photo?: string }[] = [
   {
     name: "Sahil Kapoor",
     role: "Founder & CEO",
     bio: "Visionary leader steering BitDecentro's global blockchain and AI strategy with a decade of product and venture-building experience.",
+    photo: photoSahil.url,
   },
   {
     name: "MD Shaiyad",
@@ -87,11 +91,13 @@ const team = [
     name: "Ritesh Khullar",
     role: "Director & CFO",
     bio: "Leads finance, governance and partnerships — keeping growth disciplined, transparent and built to scale internationally.",
+    photo: photoRitesh.url,
   },
   {
     name: "Hardil Singh",
     role: "CTO",
     bio: "Architect of our blockchain, AI and cloud stack — turning frontier research into production-ready, secure products.",
+    photo: photoHardil.url,
   },
 ];
 
@@ -500,8 +506,12 @@ function Portfolio() {
           {team.map((m) => (
             <article key={m.name} className="rounded-3xl bg-card border border-border p-6 hover:border-primary/60 transition card-shadow flex flex-col items-center text-center">
               <div className="relative">
-                <div className="size-28 rounded-full bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-2xl font-display font-black text-primary-foreground shadow-xl">
-                  {initials(m.name)}
+                <div className="size-28 rounded-full overflow-hidden bg-gradient-to-br from-[oklch(0.62_0.22_285)] to-[oklch(0.82_0.16_210)] grid place-items-center text-2xl font-display font-black text-primary-foreground shadow-xl ring-2 ring-primary/30">
+                  {m.photo ? (
+                    <img src={m.photo} alt={m.name} className="size-full object-cover" />
+                  ) : (
+                    initials(m.name)
+                  )}
                 </div>
                 <span className="absolute -bottom-1 -right-1 text-primary text-xl">✦</span>
               </div>
