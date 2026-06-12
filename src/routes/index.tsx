@@ -1,4 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import shotHimuda from "@/assets/projects/himuda.png";
+import shotEvera from "@/assets/projects/evera.png";
+import shotHadi from "@/assets/projects/hadi.jpg";
+import shotSagor from "@/assets/projects/sagor.png";
+import shotCbk from "@/assets/projects/cbk.png";
+import shotTrialect from "@/assets/projects/trialect.png";
+import shotTallento from "@/assets/projects/tallento.png";
+import shotFitFab from "@/assets/projects/fitandfab.png";
+import shotLush from "@/assets/projects/lush.png";
+import shotHimfed from "@/assets/projects/himfed.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,6 +58,7 @@ type Project = {
   highlights?: { title: string; body: string }[];
   stack: string[];
   accent: "cyan" | "violet" | "emerald" | "amber" | "rose";
+  screenshot: string;
 };
 
 const projects: Project[] = [
@@ -64,6 +76,7 @@ const projects: Project[] = [
     ],
     stack: ["React", "Next.js", "Tailwind", "Node.js", "PostgreSQL"],
     accent: "cyan",
+    screenshot: shotHimuda,
   },
   {
     num: "02",
@@ -79,6 +92,7 @@ const projects: Project[] = [
     ],
     stack: ["React Native", "Node.js", "MongoDB", "Google Maps", "AWS"],
     accent: "emerald",
+    screenshot: shotEvera,
   },
   {
     num: "03",
@@ -94,6 +108,7 @@ const projects: Project[] = [
     ],
     stack: ["WordPress", "PHP", "MySQL", "Cloudflare", "Elementor"],
     accent: "rose",
+    screenshot: shotHadi,
   },
   {
     num: "04",
@@ -108,6 +123,7 @@ const projects: Project[] = [
     ],
     stack: ["Flutter", "Firebase", "Node.js", "GPS API", "Redis"],
     accent: "amber",
+    screenshot: shotSagor,
   },
   {
     num: "05",
@@ -123,6 +139,7 @@ const projects: Project[] = [
     ],
     stack: ["Next.js", "TypeScript", "Tailwind", "Strapi", "Vercel"],
     accent: "cyan",
+    screenshot: shotCbk,
   },
   {
     num: "06",
@@ -137,6 +154,7 @@ const projects: Project[] = [
     ],
     stack: ["React", "Redux", "Node.js", "PostgreSQL", "AWS"],
     accent: "violet",
+    screenshot: shotTrialect,
   },
   {
     num: "07",
@@ -152,6 +170,7 @@ const projects: Project[] = [
     ],
     stack: ["Next.js", "OpenAI", "Pinecone", "Supabase", "Vercel"],
     accent: "emerald",
+    screenshot: shotTallento,
   },
   {
     num: "08",
@@ -166,6 +185,7 @@ const projects: Project[] = [
     ],
     stack: ["WordPress", "WooCommerce", "PHP", "Stripe", "Mailchimp"],
     accent: "rose",
+    screenshot: shotFitFab,
   },
   {
     num: "09",
@@ -180,6 +200,7 @@ const projects: Project[] = [
     ],
     stack: ["Shopify", "Liquid", "React", "Cloudflare", "Klaviyo"],
     accent: "amber",
+    screenshot: shotLush,
   },
   {
     num: "10",
@@ -194,6 +215,7 @@ const projects: Project[] = [
     ],
     stack: ["React", "Node.js", "PostgreSQL", "Redis", "Docker"],
     accent: "violet",
+    screenshot: shotHimfed,
   },
 ];
 
@@ -491,18 +513,13 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
                 {project.url ?? `${project.title.toLowerCase().replace(/\s+/g, "")}.app`}
               </div>
             </div>
-            <div className="flex-1 relative p-4">
-              <div className={`size-12 rounded-lg bg-gradient-to-br ${grad}`} />
-              <div className="mt-3 h-3 w-3/4 rounded bg-muted" />
-              <div className="mt-2 h-3 w-1/2 rounded bg-muted" />
-              <div className="mt-5 grid grid-cols-3 gap-2">
-                <div className="h-16 rounded bg-muted" />
-                <div className="h-16 rounded bg-muted" />
-                <div className="h-16 rounded bg-muted" />
-              </div>
-              <div className="absolute bottom-4 right-4 font-display font-black text-2xl text-foreground/30">
-                {project.title.split(" ")[0]}
-              </div>
+            <div className="flex-1 relative bg-background">
+              <img
+                src={project.screenshot}
+                alt={`${project.title} website screenshot`}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
             </div>
           </div>
           <div className="absolute top-3 right-3 text-foreground/60 text-2xl">✦</div>
@@ -511,3 +528,4 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
     </article>
   );
 }
+
